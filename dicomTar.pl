@@ -101,10 +101,8 @@ my $system          = `uname`;
 
 
 # Remove .DS_Store from dcm_source directory if exist
-if (-e $dcm_source . "/.DS_Store") {
-    my $cmd = "rm $dcm_source/.DS_Store";
-    system($cmd);
-}
+my $cmd = "cd " . $dcm_source . "; find -name '.DS_Store' | xargs rm";
+system($cmd);
 
 # create new summary object
 my $summary = DICOM::DCMSUM->new($dcm_source,$targetlocation);
