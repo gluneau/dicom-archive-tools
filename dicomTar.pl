@@ -101,7 +101,7 @@ my $system          = `uname`;
 
 
 # Remove .DS_Store from dcm_source directory if exist
-my $cmd = "cd " . $dcm_source . "; find -name '.DS_Store' | xargs rm";
+my $cmd = "cd " . $dcm_source . "; find -name '.DS_Store' | xargs rm -f";
 system($cmd);
 
 # create new summary object
